@@ -1,10 +1,10 @@
 def retorna_menu_principal():
-    retorno = input("Deseja retornar ao menu principal? (sim/não) ")
-    global validador
-    if retorno == "sim":
-        validador = True
+    retorno = input("Deseja retornar ao menu principal? (sim/não) ").lower()
+    if retorno == "sim" or retorno == "s":
+        retorna_menu = True
     else:
-        validador = False
+        retorna_menu = False
+    return retorna_menu
 
 
 def formata_texto(texto):
