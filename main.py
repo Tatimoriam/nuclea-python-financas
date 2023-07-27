@@ -1,12 +1,15 @@
+from utils.data import valida_data_nascimento
 from utils.funcoes_auxiliares import formata_texto,retorna_menu_principal
 from utils.valida_cpf import valida_cpf
+from utils.valida_rg import valida_rg
 
 validador = True
 clientes = []
 
 
-while(validador):
-    print("Seja bem vindo(a) ao sistema de gerenciamento de carteira de ações da Nuclea. Selecione uma das opções abaixo:")
+while validador:
+    print("Seja bem vindo(a) ao sistema de gerenciamento de carteira de ações da Nuclea. Selecione uma das opções "
+          "abaixo:")
     print("1 - Cadastrar cliente")
     print("2 - Cadastrar ação")
     print("3 - Realizar análise da carteira")
@@ -20,8 +23,8 @@ while(validador):
         cliente = {
             "nome": formata_texto(input("Nome: ")),
             "cpf": valida_cpf(input("CPF: ")),
-            "rg": input("RG: "),
-            "data_nascimento": input("Data de nascimento: "),
+            "rg": valida_rg(input("RG: ")),
+            "data_nascimento": valida_data_nascimento(input("Data de nascimento: ")),
             "cep": input("CEP: "),
             "numero_casa": input("Número casa: ")
         }
