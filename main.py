@@ -1,3 +1,4 @@
+from utils.cep import busca_cep
 from utils.data import valida_data_nascimento
 from utils.funcoes_auxiliares import formata_texto,retorna_menu_principal
 from utils.valida_cpf import valida_cpf
@@ -25,7 +26,7 @@ while validador:
             "cpf": valida_cpf(input("CPF: ")),
             "rg": valida_rg(input("RG: ")),
             "data_nascimento": valida_data_nascimento(input("Data de nascimento: ")),
-            "cep": input("CEP: "),
+            "endereco": busca_cep(input("CEP: ")),
             "numero_casa": input("Número casa: ")
         }
         clientes.append(cliente)
