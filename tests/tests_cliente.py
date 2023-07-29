@@ -30,3 +30,4 @@ class TestStringMethods(unittest.TestCase):
         }
 
         self.assertIn(cliente_esperado, clientes)
+
