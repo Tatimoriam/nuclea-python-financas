@@ -20,7 +20,6 @@ def busca_cep(cep):
 
 
 def valida_cep():
-    print("Consulta do CEP - ViaCEP")
 
     while True:
         cep_input = input("CEP: ")

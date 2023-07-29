@@ -13,7 +13,4 @@ def valida_data_nascimento():
             else:
                 print("A data de nascimento não pode ser maior que a data atual.")
         except ValueError as e:
-            print("Recebei um erro: ", e,
-                  ", porém estou utilizando tratamento de erros. Digite novamente a data de nascimento.")
-        finally:
-            print("Fluxo de validação encerrado.")
+            print("Erro: ", e, ". Digite novamente a data de nascimento.")
