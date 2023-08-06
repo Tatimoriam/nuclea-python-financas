@@ -1,3 +1,4 @@
+import re
 import requests
 
 
@@ -20,9 +21,10 @@ def busca_cep(cep):
 
 
 def valida_cep():
-
     while True:
         cep_input = input("CEP: ")
+
+        cep_input = re.sub("[-.]", "", cep_input)
 
         if cep_input.isdigit() and len(cep_input) == 8:
             retorno_cep = busca_cep(cep_input)
@@ -30,3 +32,4 @@ def valida_cep():
                 return retorno_cep
             else:
                 print("CEP não encontrado ou inválido.")
+

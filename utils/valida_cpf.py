@@ -1,3 +1,5 @@
+import re
+
 from validate_docbr import CPF
 
 
@@ -7,6 +9,8 @@ def valida_cpf():
     while True:
         cpf = input("CPF: ")
         resultado_validacao = cpf_validador.validate(cpf)
+
+        cpf = re.sub("[-.]", "", cpf)
 
         if resultado_validacao:
             cpf_formatado = f"{cpf[:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:]}"
