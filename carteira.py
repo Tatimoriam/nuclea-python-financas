@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -6,7 +8,7 @@ import matplotlib.pyplot as plt
 def analisar_carteira(lista):
     # Definir o período de data desejado
     start_date = "2020-01-01"
-    end_date = "2023-01-01"
+    end_date = datetime.now().date()
 
     # Criar um DataFrame vazio
     df = pd.DataFrame()

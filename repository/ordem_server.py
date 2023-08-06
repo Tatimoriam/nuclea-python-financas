@@ -117,30 +117,22 @@ class OrdemServer:
         except Exception as e:
             return print("Falha ao Buscar id:", e)
 
+    def lista_ordem_cliente(self, cpf):
+        bd = BancoDeDados()
 
-if __name__ == "__main__":
-    cli = Cliente()
-    cli.cpf = '757.025.340-00'
+        buscar_query = ("SELECT ordem.* FROM cliente INNER JOIN ordem ON cliente.id = ordem.cliente_id "
+                        "WHERE cliente.CPF = %s")
+        values = (
+            cpf
+        )
 
-    cliServer = ClienteServer(cli)
-    idCli = cliServer.buscar_id_cliente()
+        try:
+            bd.cursor.execute(buscar_query, (values,))
 
-    ord = Ordem()
-    ord.id_cliente = idCli
-    ord.ticket = 'DXCO3'
-    ordServer = OrdemServer(ord)
+            ordem = bd.cursor.fetchall()
 
-    ord = ordServer.busca_ordem()
+            return ordem
 
-    ticket = 'ITSA4'
+        except Exception as e:
+            return print("Falha ao Buscar id:", e)
 
-    ord.nome = 'Itaúsa'
-    ord.ticket = 'DXCO3'
-    ord.valor_compra = '9.35'
-    ord.quantidade_compra = 8
-    ord.data_compra = datetime.now().date()
-    ord.id_cliente = idCli
-
-
-
-    # ordServer.alterar_ordem(ticket)
